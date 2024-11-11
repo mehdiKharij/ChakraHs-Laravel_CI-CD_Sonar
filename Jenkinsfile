@@ -60,7 +60,7 @@ pipeline {
                             ${scannerHome}/bin/sonar-scanner \
                             -Dsonar.projectKey=LaravelProject \
                             -Dsonar.host.url=http://localhost:9000 \
-                            -Dsonar.login=sqa_adb51cc119ad99fadc3cb78a583ba06a54162d0f \
+                            -Dsonar.login=sqa_828a2e7a68c0809b6f94eb28c86374d012d7dbbe \
                             -Dsonar.sources=./app \
                             -Dsonar.exclusions="vendor/*,storage/**,bootstrap/cache/*"
                         """
