@@ -11,7 +11,7 @@ pipeline {
 
         stage('Install Deps') {
             steps {
-                // sh 'composer install'
+            
                 echo 'composer install'
             }
         }
