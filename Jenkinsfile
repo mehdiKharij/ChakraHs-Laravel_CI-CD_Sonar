@@ -51,23 +51,24 @@ pipeline {
         //     }
         // }
 
-        stage('SonarQube Analysis') {
-            steps {
-                script {
-                    def scannerHome = tool 'sonar-scanner'
-                    withSonarQubeEnv('SonarQube') {
-                        sh """
-                            ${scannerHome}/bin/sonar-scanner \
-                            -Dsonar.projectKey=LaravelProject \
-                            -Dsonar.host.url=http://localhost:9000 \
-                            -Dsonar.login=sqa_828a2e7a68c0809b6f94eb28c86374d012d7dbbe \
-                            -Dsonar.sources=./app \
-                            -Dsonar.exclusions="vendor/*,storage/**,bootstrap/cache/*"
-                        """
-                    }
-                }
+       stage('SonarQube Analysis') {
+    steps {
+        script {
+            def scannerHome = tool 'sonar-scanner'
+            withSonarQubeEnv('SonarQube') {
+                bat """
+                    "${scannerHome}\\bin\\sonar-scanner.bat" ^
+                    -Dsonar.projectKey=LaravelProject ^
+                    -Dsonar.host.url=http://localhost:9000 ^
+                    -Dsonar.login=sqa_828a2e7a68c0809b6f94eb28c86374d012d7dbbe ^
+                    -Dsonar.sources=./app ^
+                    -Dsonar.exclusions="vendor/*,storage/**,bootstrap/cache/*"
+                """
             }
         }
+    }
+}
+
 
 
         stage('Quality Gate') {
