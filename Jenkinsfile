@@ -58,9 +58,9 @@ pipeline {
                     withSonarQubeEnv('SonarQube') {
                         sh """
                             ${scannerHome}/bin/sonar-scanner \
-                            -Dsonar.projectKey=GitlabMx \
+                            -Dsonar.projectKey=LaravelProject \
                             -Dsonar.host.url=http://localhost:9000 \
-                            -Dsonar.login=sqp_5c7cf314cd19d3f60ed624ea584d547820ccd482 \
+                            -Dsonar.login=sqa_adb51cc119ad99fadc3cb78a583ba06a54162d0f \
                             -Dsonar.sources=./app \
                             -Dsonar.exclusions="vendor/*,storage/**,bootstrap/cache/*"
                         """
